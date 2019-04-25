@@ -58,7 +58,8 @@ Sets the background of the component
 
 <h3>Usage</h3>
   
-  ```<template>
+  ```
+  <template>
   <div>
     <Emoji :emojis='emoji_list' :recently_used='recently_used' 
     @onEmojiClicked="getSelected" background=grey />
@@ -98,4 +99,4 @@ import Emoji from 'emoji-component'
         }
     }
 </script>
-    ```
+ ```
