@@ -57,7 +57,7 @@ Sets the background of the component
 
 
 <h3>Usage</h3>
-```
+  ```
 <template>
   <div>
     <Emoji :emojis='emoji_list' :recently_used='recently_used' 
