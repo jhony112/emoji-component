@@ -9,7 +9,7 @@ npm install --save emoji-component
 -<h2>Configuration</h2>
 
 
-##emojis
+<h3>emojis</h3>
 This component requires you to structure your emojis in a array , for example
 
 Sample emoji list
@@ -43,20 +43,20 @@ Sample emoji list
   ]
   ```
   
-##recently_used
+<h3>recently_used</h3>
 Same as emojis
 
-##onEmojiClicked
+<h3>onEmojiClicked</h3>
 This callback method returns the selected emoji object
 
    
- ##background
+ <h3>background</h3>
 Sets the background of the component
 
 
 
 
-##Usage
+<h3>Usage</h3>
 ```
 <template>
   <div>
