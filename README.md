@@ -6,7 +6,7 @@ Simple web component for rendering (svg, png, jpg) emojis
 npm install --save emoji-component
 
 
--<h2>Configuration</h2>
+<h2>Configuration</h2>
 
 
 <h3>emojis</h3>
