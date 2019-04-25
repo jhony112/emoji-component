@@ -7,12 +7,14 @@ npm install --save emoji-component
 
 
 -<h2>Configuration</h2>
-<p>emojis</p>
+
+
+##emojis
 This component requires you to structure your emojis in a array , for example
 
 Sample emoji list
 
-[
+```[
   {
     "id":"555",
     "tag": "::happy::",
@@ -38,30 +40,23 @@ Sample emoji list
     "category": "Bad Mood"
   }
   ]
-<p>recently_used</p>
+  ```
+  
+##recently_used
 Same as emojis
 
-<p>onEmojiClicked</p>
+##onEmojiClicked
 This method returns the selected emoji object
-i.e
- {
-    "id":"315",
-    "tag": "::sad::",
-    "keywords": [
-      "Sad",
-      "Sorrowful",
-      "Disappointed"
-    ],
-    "source": "2.svg",
-    "category": "Bad Mood"
-  }
 
-<p>background</p>
+   
+  
+
+##background
 Sets the background of the component
 
 
 -<h2>Usage</h2>
-
+```
 <template>
   <div>
     <Emoji :emojis='emoji_list' :recently_used='recently_used' @onEmojiClicked="getSelected" background=grey />
@@ -104,3 +99,4 @@ import Emoji from 'emoji-component'
         }
     }
 </script>
+```
