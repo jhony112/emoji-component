@@ -9,7 +9,7 @@ npm install --save emoji-component
 -<h2>Configuration</h2>
 
 
-##emojis
+###emojis
 This component requires you to structure your emojis in a array , for example
 
 Sample emoji list
