@@ -14,7 +14,8 @@ This component requires you to structure your emojis in a array , for example
 
 Sample emoji list
 
-```[
+```
+[
   {
     "id":"555",
     "tag": "::happy::",
@@ -46,20 +47,21 @@ Sample emoji list
 Same as emojis
 
 ##onEmojiClicked
-This method returns the selected emoji object
+This callback method returns the selected emoji object
 
    
-  
-
-##background
+ ##background
 Sets the background of the component
 
 
--<h2>Usage</h2>
+
+
+##Usage
 ```
 <template>
   <div>
-    <Emoji :emojis='emoji_list' :recently_used='recently_used' @onEmojiClicked="getSelected" background=grey />
+    <Emoji :emojis='emoji_list' :recently_used='recently_used' 
+    @onEmojiClicked="getSelected" background=grey />
   </div>
 </template>
 
@@ -70,24 +72,21 @@ import Emoji from 'emoji-component'
         components: {
             Emoji
         },
-
         data: function () {
             return {
-                emoji_list:[
-  {
-    "id":"555",
-    "tag": "::happy::",
-    "keywords": [
-      "Happy",
-      "Ecstatic",
-      "Joyful",
-      "Great",
-      "Elated"
-    ],
-    "source": "1.svg",
-    "category": "Good Mood"
-  },
-  ] ,
+                emoji_list:[{
+                                "id":"555",
+                                "tag": "::happy::",
+                                "keywords": ["Happy","Elated"],
+                                "source": "1.svg",
+                                "category": "Good Mood"},
+                                {
+                                "id":"555",
+                                "tag": "::happy::",
+                                "keywords": ["Happy","Elated"],
+                                "source": "1.svg",
+                                "category": "Good Mood"},
+                            ],
                 recently_used: []
             };
         },
