@@ -4,21 +4,20 @@
             <div class="flex flex-col">
                 <div class="text-sm text-left col-white">Recently Used</div>
                 <div class="emojisRecentUI">
-                    <img class="emoji grow"  :src=emoji.source v-for="emoji in recentlyUsedList" v-bind:key="emoji.id"
+                    <img class="emoji grow" :src=emoji.source v-for="emoji in recentlyUsedList" v-bind:key="emoji.id"
                          v-on:click="getSelected(emoji)">
                 </div>
             </div>
             <div id="wrap">
 
                 <input v-model="typed" id="searchUIx" name="search" type="text"
-                       placeholder="Search Reaction ?"><input
-                    id="search_submit" value="Rechercher" type="submit">
+                       placeholder="Search Reaction?"><input id="search_submit" type="submit">
 
             </div>
         </div>
         <div class="emoji-area">
             <div class="emojisUI">
-                <img class="emoji grow" :src=emoji.source v-for="emoji in filteredList" v-bind:key="emoji.id"
+                <img :alt=emoji.tag class="emoji grow" :src=emoji.source v-for="emoji in filteredList" v-bind:key="emoji.id"
                      v-on:click="getSelected(emoji)">
             </div>
 
@@ -54,11 +53,18 @@
             },
             filteredList() {
                 return this.emojis.filter(emoji => {
-                    for (var i = 0; i < emoji.keywords.length; i++) {
-                        var one = emoji.keywords[i];
-                        return one.toLowerCase().includes(this.typed.toLowerCase())
-                    }
+                    if (this.typed.length === 0) return true;
 
+                    if (emoji['keywords'].length === 0 && this.typed.length > 0) return false;
+
+                    let match = false;
+
+                    for (let i = 0; i < emoji['keywords'].length; i++) {
+                        let runSearch = emoji['keywords'][i].toString().toUpperCase().match(this.typed.toString().toUpperCase());
+                        match = (runSearch.isArray() && runSearch.length > 0);
+                        if (match) break;
+                    }
+                    return match;
                 })
             }, recentlyUsedList() {
                 return this.recently_used;
@@ -85,7 +91,7 @@
             // console.log('background-color:' + col + "!important;")
         },
         methods: {
-            getRecentEmoji:function(){
+            getRecentEmoji: function () {
                 return [];
             },
             getSelected: function (emoji) {
@@ -140,14 +146,17 @@
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
     }
-    .emojisRecentUI{
+
+    .emojisRecentUI {
         height: 90%;
         margin-top: 10px;
     }
-    .emojisRecentUI img{
+
+    .emojisRecentUI img {
         width: 45px;
         height: 45px;
     }
+
     .emojisUI {
         margin-top: 10px;
         height: 98%;
